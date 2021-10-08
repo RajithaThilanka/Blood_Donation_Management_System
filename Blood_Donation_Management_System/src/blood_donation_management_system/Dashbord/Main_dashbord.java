@@ -350,9 +350,9 @@ public
     
     //Store button 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-         jDesktopPane1.removeAll();
-        Store_page store_page=new  Store_page();
-         jDesktopPane1.add(store_page).setVisible (true);
+          jDesktopPane1.removeAll();
+          Store_page store_page=new  Store_page();
+          jDesktopPane1.add(store_page).setVisible (true);
         
     }//GEN-LAST:event_jButton5ActionPerformed
 
