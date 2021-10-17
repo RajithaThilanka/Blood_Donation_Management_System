@@ -1,6 +1,7 @@
 
 package blood_donation_management_system.Dashbord;
 
+import java.awt.Toolkit;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 
@@ -15,7 +16,8 @@ public Dash_main_page () {
         this.setBorder (javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI bui =(BasicInternalFrameUI) this.getUI ();
         bui.setNorthPane (null);
-        setSize (1270, 680);
+        setSize (1400, 750);
+        Toolkit t = Toolkit.getDefaultToolkit();
     
 }
 
@@ -36,7 +38,7 @@ public Dash_main_page () {
         dash_content_gradient2Layout.setHorizontalGroup(
             dash_content_gradient2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dash_content_gradient2Layout.createSequentialGroup()
-                .addContainerGap(1315, Short.MAX_VALUE)
+                .addContainerGap(1353, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(427, 427, 427))
         );
@@ -45,18 +47,22 @@ public Dash_main_page () {
             .addGroup(dash_content_gradient2Layout.createSequentialGroup()
                 .addGap(181, 181, 181)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(297, Short.MAX_VALUE))
+                .addContainerGap(328, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dash_content_gradient2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(dash_content_gradient2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dash_content_gradient2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(dash_content_gradient2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();

@@ -2,6 +2,7 @@
 package blood_donation_management_system.Dashbord.Donor;
 
 import blood_donation_management_system.Database_connction;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
@@ -20,12 +21,14 @@ public Doner_registation_form () {
         
         initComponents ();
         
+        
         //Desktop pain Border design 
         
         this.setBorder (javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI bui =(BasicInternalFrameUI) this.getUI ();
         bui.setNorthPane (null);
-        setSize (1270, 680);
+        setSize (1400, 750);
+        Toolkit t = Toolkit.getDefaultToolkit();
         
         //Get database Connection
         conn=Database_connction.Connect();

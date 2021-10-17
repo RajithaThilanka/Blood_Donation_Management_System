@@ -6,6 +6,7 @@ import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.Toolkit;
 
 
 public class Dash_content_gradient extends javax.swing.JPanel{
@@ -13,6 +14,11 @@ public class Dash_content_gradient extends javax.swing.JPanel{
 public Dash_content_gradient () {
             initComponents ();
           setOpaque(false);
+          
+          
+                  
+        setSize (1400, 750);
+        Toolkit t = Toolkit.getDefaultToolkit();
 }
 
 
@@ -26,11 +32,11 @@ public Dash_content_gradient () {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 540, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 416, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
         protected void paintChildren(Graphics grphcs){

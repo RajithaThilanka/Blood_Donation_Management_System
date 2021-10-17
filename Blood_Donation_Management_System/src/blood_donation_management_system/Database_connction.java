@@ -15,12 +15,13 @@ public class Database_connction{
        
        Connection conn=null;
        PreparedStatement pst=null;
-       
+      
        try {
        Class.forName("com.mysql.jdbc.Driver");
          conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost:3308/blood_donation_db?","root","40553817");  
            
           JOptionPane.showMessageDialog (null,"Connection OK");
+          
        } catch (Exception e) {
            JOptionPane.showMessageDialog (null,"Connection ERRROR");
        }

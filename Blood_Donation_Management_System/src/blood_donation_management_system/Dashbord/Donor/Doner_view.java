@@ -1,6 +1,7 @@
 
 package blood_donation_management_system.Dashbord.Donor;
 
+import java.awt.Toolkit;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 
@@ -13,7 +14,8 @@ public Doner_view () {
     this.setBorder (javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI bui =(BasicInternalFrameUI) this.getUI ();
         bui.setNorthPane (null);
-        setSize (1270, 680);
+        setSize (1400, 750);
+        Toolkit t = Toolkit.getDefaultToolkit();
 }
 
 

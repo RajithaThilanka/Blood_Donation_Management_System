@@ -2,6 +2,9 @@ package blood_donation_management_system;
 
 
 import blood_donation_management_system.Dashbord.Main_dashbord;
+import java.awt.GraphicsEnvironment;
+import java.awt.Point;
+import java.awt.Toolkit;
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,7 +20,21 @@ PreparedStatement st=null;
 
 public Admin_login_form () {
     initComponents ();
-    setSize(1500,800);
+    
+      //Layour size setting  
+        
+        Toolkit t = Toolkit.getDefaultToolkit();
+        this.setSize(1536, 824);
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            Point centerPoint = ge.getCenterPoint();
+
+            int dx = centerPoint.x - 1536/ 2;
+            int dy = centerPoint.y - 824/ 2;    
+            setLocation(dx, dy);
+        
+        
+        
+
 
     //frame resizable desable
     setResizable(false);

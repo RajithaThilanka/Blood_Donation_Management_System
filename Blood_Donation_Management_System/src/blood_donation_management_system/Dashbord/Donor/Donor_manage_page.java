@@ -1,6 +1,7 @@
 
 package blood_donation_management_system.Dashbord.Donor;
 
+import java.awt.Toolkit;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 
@@ -12,8 +13,12 @@ public Donor_manage_page () {
         this.setBorder (javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI bui =(BasicInternalFrameUI) this.getUI ();
         bui.setNorthPane (null);
-
-        setSize (1270, 680);
+        
+        Registation_pane.removeAll();
+        Doner_registation_form doner_reg=new   Doner_registation_form();
+        registation_pane.add(doner_reg).setVisible (true);
+        setSize (1400, 750);
+        Toolkit t = Toolkit.getDefaultToolkit();
 }
 
 

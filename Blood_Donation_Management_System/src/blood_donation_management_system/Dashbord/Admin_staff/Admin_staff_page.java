@@ -4,6 +4,7 @@ package blood_donation_management_system.Dashbord.Admin_staff;
 import blood_donation_management_system.Database_connction;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -28,10 +29,11 @@ public  Admin_staff_page () {
         this.setBorder (javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI bui =(BasicInternalFrameUI) this.getUI ();
         bui.setNorthPane (null);
-        setSize (1270, 680);
-       
         
-      
+        setSize (1400, 750);
+        Toolkit t = Toolkit.getDefaultToolkit();
+        
+       
         //Connect to DB
        conn=Database_connction.Connect();
        
@@ -40,13 +42,11 @@ public  Admin_staff_page () {
        TableLoad();
        
        
-       //Table heder design
+       //Table header design
        Admin_table.getTableHeader ().setFont (new Font("sergro",Font.BOLD,19));
        Admin_table.getTableHeader ().setOpaque (false);
        
-       
- 
-       //    Admin_table.getTableHeader ().setBackground(new Color(32,,32));
+       // Admin_table.getTableHeader ().setBackground(new Color(32,,32));
        Admin_table.setRowHeight(40);
 }
 
@@ -58,20 +58,24 @@ public void TableLoad(){
     
     try {
             
+        
        String sql=" SELECT admin_id,Admin_name,Admin_epf,Hospitle,Email,Contact_no,Address from admin ";
        PreparedStatement pst =conn.prepareStatement(sql);
        java.sql.ResultSet set = pst.executeQuery(sql);
        Admin_table.setModel (DbUtils.resultSetToTableModel (set));
-       
-    } catch (Exception e) {
         
-    }
+       
+    } 
+    
+    catch (Exception e) {
+        
+        
+   }
   
 }
 
 
 public void Search_data(){
-    
     
      try {
          
@@ -82,10 +86,11 @@ public void Search_data(){
        java.sql.ResultSet set = pst.executeQuery(sql);
        Admin_table.setModel (DbUtils.resultSetToTableModel (set));
       
-        JOptionPane.showMessageDialog (null,"Serch OK");
+        JOptionPane.showMessageDialog (null,"Search OK");
+        
         
     } catch (Exception e) {
-         JOptionPane.showMessageDialog (null,"Serch ERROR");
+         JOptionPane.showMessageDialog (null,"Search ERROR");
     }
 
 }
@@ -124,7 +129,8 @@ public void Delete_record(){
         String update_val=Enter_update_para.getText ();
         String Enter_para=Enter_id.getText ();
         String sql = null ;
-        
+      
+       
         
         try {
             
@@ -205,6 +211,7 @@ public void Delete_record(){
         Enter_update_para = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         Select_update_para = new javax.swing.JComboBox<>();
+        jButton4 = new javax.swing.JButton();
 
         Admin_table.setAutoCreateRowSorter(true);
         Admin_table.setBackground(new java.awt.Color(32, 60, 61));
@@ -292,15 +299,22 @@ public void Delete_record(){
             }
         });
 
+        jButton4.setBackground(new java.awt.Color(38, 43, 63));
+        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setText("Clear");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout dash_content_gradient1Layout = new javax.swing.GroupLayout(dash_content_gradient1);
         dash_content_gradient1.setLayout(dash_content_gradient1Layout);
         dash_content_gradient1Layout.setHorizontalGroup(
             dash_content_gradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dash_content_gradient1Layout.createSequentialGroup()
                 .addGroup(dash_content_gradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(dash_content_gradient1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1255, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(dash_content_gradient1Layout.createSequentialGroup()
                         .addGap(208, 208, 208)
                         .addGroup(dash_content_gradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -319,13 +333,18 @@ public void Delete_record(){
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(Enter_update_para, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(dash_content_gradient1Layout.createSequentialGroup()
-                        .addGap(480, 480, 480)
+                        .addGap(411, 411, 411)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(656, Short.MAX_VALUE))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(dash_content_gradient1Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1255, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
         dash_content_gradient1Layout.setVerticalGroup(
             dash_content_gradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -344,12 +363,13 @@ public void Delete_record(){
                 .addGroup(dash_content_gradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Enter_update_para, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                .addGap(36, 36, 36)
                 .addGroup(dash_content_gradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(200, Short.MAX_VALUE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -358,13 +378,13 @@ public void Delete_record(){
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(dash_content_gradient1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addGap(0, 16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(dash_content_gradient1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 166, Short.MAX_VALUE))
         );
 
         pack();
@@ -374,7 +394,8 @@ public void Delete_record(){
       int update_val=JOptionPane.showConfirmDialog (null,"Do you really want to update this ?" );
       if(update_val==0){
           Update_record();
-           set_clear();
+          set_clear();
+          TableLoad();
       }
       
       
@@ -386,6 +407,7 @@ public void Delete_record(){
       if(delete_val==0){
        Delete_record();  
        set_clear();
+       TableLoad();
      
       }
         
@@ -400,6 +422,12 @@ public void Delete_record(){
         // TODO add your handling code here:
     }//GEN-LAST:event_Select_update_paraActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+          set_clear();
+          TableLoad();
+         
+    }//GEN-LAST:event_jButton4ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Admin_table;
@@ -410,6 +438,7 @@ public void Delete_record(){
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
